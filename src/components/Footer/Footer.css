@@ -1,0 +1,126 @@
+/* src/components/Footer/Footer.css */
+
+/*
+ * Estilo do container principal do rodapé.
+ * O fundo cinza mais claro visto na imagem do Figma (seção de contato).
+ */
+.footer {
+    /* Cor de fundo para a seção de contato, um pouco mais clara que o fundo principal */
+    background-color: var(--color-background-medium); 
+    padding: 6rem 1.5rem 2rem 1.5rem; /* Padding superior grande para dar destaque */
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ---------------------------------- */
+/* GRID DE ITENS DE CONTATO       */
+/* ---------------------------------- */
+
+/* Container que organiza os 4 itens de contato em um grid */
+.contact-grid {
+    display: grid;
+    /* 4 colunas de tamanho igual */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Estilo para cada item/link de contato */
+.contact-item {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.contact-item:hover {
+    color: var(--color-primary-light); /* Destaque turquesa no hover */
+}
+
+/* ---------------------------------- */
+/* ÍCONES DE CONTATO              */
+/* ---------------------------------- */
+
+/* Container do ícone (o círculo preto) */
+.contact-icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-background-dark); /* Fundo preto do ícone */
+    border-radius: 50%; /* Círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    /* Adiciona uma borda turquesa sutil ao redor do box (opcional) */
+    border: 2px solid transparent; 
+    transition: border-color 0.3s;
+}
+
+.contact-item:hover .contact-icon-box {
+    border-color: var(--color-primary-light); /* Borda turquesa no hover */
+}
+
+/* Estilo para o placeholder do ícone */
+.icon-placeholder {
+    font-size: 1.5rem; 
+    color: var(--color-primary-light); /* Cor do ícone */
+    line-height: 1; /* Alinhamento */
+}
+
+/* ---------------------------------- */
+/* DETALHES DE CONTATO (TEXTO)    */
+/* ---------------------------------- */
+.contact-label {
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    margin-bottom: 0.2rem;
+}
+
+.contact-value {
+    font-size: 1rem;
+    font-weight: bold;
+    word-break: break-word; /* Garante que emails longos quebrem a linha */
+}
+
+/* ---------------------------------- */
+/* DIVISOR E COPYRIGHT            */
+/* ---------------------------------- */
+
+/* Linha horizontal para separar o contato do copyright */
+.footer-divider {
+    width: 80%;
+    max-width: 600px;
+    border: none;
+    border-top: 1px solid var(--color-text-light); /* Linha cinza clara */
+    margin: 2rem auto;
+}
+
+.copyright {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* ---------------------------------- */
+/* RESPONSIVIDADE                 */
+/* ---------------------------------- */
+@media (max-width: 900px) {
+    /* Em telas médias, empilha em 2 colunas */
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem; /* Aumenta o espaço entre os blocos */
+    }
+}
+
+@media (max-width: 500px) {
+    /* Em telas muito pequenas, empilha em 1 coluna */
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

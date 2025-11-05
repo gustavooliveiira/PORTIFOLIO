@@ -1,0 +1,106 @@
+/* src/components/Header.css */
+
+.header {
+    width: 100%;
+    /* Define o fundo como a cor secundária escura */
+    background-color: var(--color-background-medium); 
+    padding: 1rem 1.5rem;
+    color: var(--color-text-white);
+    
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Coloca os elementos nas extremidades */
+    align-items: center;
+    max-width: 1900px; /* Limita a largura em telas maiores */
+    margin: 0 auto;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Espaço entre o switch e o botão de idioma */
+}
+
+/* --- Menu Toggle (Ícone Sanduíche) --- */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-white);
+    font-size: 1.8rem;
+    cursor: pointer;
+    /* Ajuste para alinhar verticalmente o ícone, se necessário */
+    padding: 0.5rem; 
+}
+
+/* --- Botão de Idioma --- */
+.lang-button {
+    background: none;
+    border: 1px solid var(--color-primary-light); /* Borda turquesa */
+    color: var(--color-primary-light);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.lang-button:hover {
+    background-color: rgba(102, 252, 241, 0.1); /* Um leve destaque no hover */
+}
+
+.arrow-down {
+    font-size: 0.8rem;
+}
+
+/* --- Switch de Modo (Simulação do Toggle) --- */
+
+.mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px; /* Largura total do switch */
+    height: 24px; /* Altura total do switch */
+}
+
+.mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-background-dark);
+    border: 1px solid var(--color-primary-light);
+    transition: 0.4s;
+    border-radius: 24px; /* Formato arredondado */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--color-primary-light);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--color-background-dark);
+}
+
+input:checked + .slider:before {
+    transform: translateX(18px); /* Move o "botão" para a direita */
+}

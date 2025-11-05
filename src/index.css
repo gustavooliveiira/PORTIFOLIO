@@ -1,68 +1,65 @@
+/* src/index.css */
+
+/*
+ * --------------------------------------------------------------------------
+ * VARIÁVEIS DE TEMA PADRÃO (DARK MODE)
+ * Aplicadas ao corpo quando a classe 'dark' é ativa (ou por padrão)
+ * --------------------------------------------------------------------------
+ */
+body.dark {
+  /* Cores Principais do Dark Mode */
+  --color-background-dark: #101820; /* Fundo principal muito escuro */
+  --color-background-medium: #1F2833; /* Fundo de seção secundária (cinza escuro) */
+  --color-primary-light: #66FCF1; /* Turquesa/Ciano - Destaque */
+  --color-text-light: #C5C6C7; /* Texto cinza claro */
+  --color-text-white: #FFFFFF; /* Texto branco puro */
+  --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra escura */
+}
+
+/*
+ * --------------------------------------------------------------------------
+ * VARIÁVEIS DE TEMA CLARO (LIGHT MODE)
+ * Aplicadas quando a classe 'light' está ativa no body
+ * --------------------------------------------------------------------------
+ */
+body.light {
+  /* Cores Principais do Light Mode */
+  --color-background-dark: #F0F0F0; /* Fundo principal muito claro (quase branco) */
+  --color-background-medium: #FFFFFF; /* Fundo de seção secundária (branco puro) */
+  --color-primary-light: #0077B6; /* Azul Escuro - Destaque (pode ser o mesmo turquesa, mas escuro) */
+  --color-text-light: #333333; /* Texto cinza escuro */
+  --color-text-white: #000000; /* Texto preto puro */
+  --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra clara */
+}
+
+/*
+ * --------------------------------------------------------------------------
+ * ESTILOS GLOBAIS COMUNS (APLICAM AS VARIÁVEIS DEFINIDAS ACIMA)
+ * --------------------------------------------------------------------------
+ */
+
+/* Tipografia */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Substitua 'Nome da Fonte' pela fonte real do seu Figma, se souber. */
+  --font-family-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-base: 1rem;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* Reset básico para todo o documento */
+* {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+}
+
+/* Estilos aplicados ao corpo da página (usa as variáveis definidas) */
+body {
+  /* O CSS 'var()' automaticamente usa o valor do tema ativo */
+  background-color: var(--color-background-dark);
+  color: var(--color-text-light);
+  font-family: var(--font-family-main);
+  line-height: 1.6;
   min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+  /* Transição suave para a cor de fundo e texto na troca de tema */
+  transition: background-color 0.5s ease, color 0.5s ease; 
 }

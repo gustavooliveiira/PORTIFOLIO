@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.tsx
 
+// Removido 'import React' para resolver o warning do TypeScript.
+import { useEffect } from 'react'; // <-- Importando apenas o hook useEffect
+import Header from './components/Header/Header';
+import Hero from './components/Hero/Hero';
+import About from './components/About/About';
+import ProjectsSection from './components/ProjectsSection/ProjectsSection';
+import Footer from './components/Footer/Footer';
+import { useTheme } from './context/useTheme'; 
+import './App.css'; 
+
+/**
+ * @component App
+ * @description Componente raiz da aplicação.
+ * Lê o estado global do tema e aplica a classe CSS correspondente.
+ */
 function App() {
-  const [count, setCount] = useState(0)
+  const { theme } = useTheme();
 
+  // Aplica a classe do tema no <body>
+  useEffect(() => {
+    document.body.className = theme; // Aplica 'dark' ou 'light'
+  }, [theme]);
+  
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    // Aplica a classe do tema também ao container principal para estilos mais específicos
+    <div className={`portfolio-container ${theme}-theme`}> 
+      
+      {/* 1. Cabeçalho */}
+      <Header />
+      
+      {/* 2. Conteúdo Principal */}
+      <main className="main-content">
+        
+        <Hero />
+        <About />
+        <ProjectsSection />
+        
+      </main>
+      
+      {/* 3. Rodapé */}
+      <Footer />
+      
+    </div>
+  );
 }
 
-export default App
+export default App;

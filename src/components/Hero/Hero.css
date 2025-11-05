@@ -1,0 +1,163 @@
+/* src/components/Hero/Hero.css */
+
+/*
+ * Seção Principal do Hero
+ * Contém o espaçamento e a linha divisória inferior.
+ */
+.hero {
+    padding: 4rem 0 6rem 0; /* Espaçamento superior e inferior */
+    border-bottom: 2px solid var(--color-background-medium); /* Linha divisória sutil */
+}
+
+/*
+ * Container que divide o conteúdo em duas colunas (Texto e Imagem)
+ */
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente no centro */
+    gap: 2rem; /* Espaço entre as colunas */
+}
+
+/* ---------------------------------- */
+/* TEXTO DE APRESENTAÇÃO     */
+/* ---------------------------------- */
+.hero-text {
+    flex: 1; /* Permite que o texto ocupe o espaço */
+    max-width: 60%; /* Limita a largura do texto para melhor leitura */
+}
+
+/* Estilos de Tipografia */
+.greeting {
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+.name {
+    font-size: 3rem;
+    color: var(--color-text-white);
+    margin-bottom: 0.2rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    color: var(--color-primary-light); /* Turquesa para destaque */
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.welcome-message {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-light);
+}
+
+/* ---------------------------------- */
+/* BOTÕES E ÍCONES           */
+/* ---------------------------------- */
+
+/* Container dos botões de CV e Contato */
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilos de base para todos os botões */
+.btn {
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Botão Primário (Entrar Contato) */
+.btn-primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-dark);
+    border: 2px solid var(--color-primary-light);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary-light);
+}
+
+/* Botão Secundário (Download CV) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-light);
+    border: 2px solid var(--color-primary-light);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-dark);
+}
+
+/* Container dos links sociais (GitHub, LinkedIn) */
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Estilo para os ícones sociais (placeholders) */
+.social-icon {
+    font-size: 2.5rem;
+    color: var(--color-text-light);
+    transition: color 0.3s;
+}
+
+.social-links a:hover .social-icon {
+    color: var(--color-primary-light); /* Efeito hover turquesa */
+}
+
+
+/* ---------------------------------- */
+/* IMAGEM DE PERFIL          */
+/* ---------------------------------- */
+
+/* Container da imagem de perfil (circular) */
+.hero-image-container {
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    width: 180px; 
+    height: 180px; 
+    border-radius: 50%; /* Torna a imagem circular */
+    border: 3px solid var(--color-primary-light); /* Borda de destaque */
+    overflow: hidden;
+}
+
+/* Placeholder ou a própria imagem */
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background-medium); 
+    background-size: cover;
+    background-position: center;
+}
+
+/* ---------------------------------- */
+/* RESPONSIVIDADE            */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column; /* Pilha verticalmente em telas pequenas */
+        text-align: center;
+    }
+
+    .hero-text {
+        max-width: 100%;
+    }
+
+    .hero-actions, 
+    .social-links {
+        justify-content: center; /* Centraliza botões e ícones */
+    }
+
+    .hero-image-container {
+        order: -1; /* Move a imagem para o topo (acima do texto) */
+        margin-bottom: 2rem;
+    }
+}

@@ -1,0 +1,115 @@
+/* src/components/ProjectsSection/ProjectsSection.css */
+
+/*
+ * Estilos da Seção Principal de Projetos e Destaques
+ */
+.projects-section {
+    padding: 4rem 0;
+    /* Linha divisória sutil para separar do footer que virá */
+    border-bottom: 2px solid var(--color-background-medium); 
+}
+
+/* ---------------------------------- */
+/* GRIDS DE CARDS                 */
+/* ---------------------------------- */
+
+/* Estilo base para os grids de projetos e destaques */
+.highlights-grid,
+.projects-grid {
+    display: grid;
+    /* Cria 3 colunas de tamanho igual (1fr) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; /* Espaço entre os cards */
+    margin-bottom: 4rem; /* Espaço após o grid */
+}
+
+.highlights-grid {
+    margin-bottom: 6rem; /* Mais espaço para separar do próximo título "Projetos" */
+}
+
+/* ---------------------------------- */
+/* TÍTULOS E CONTROLES DE FILTRO  */
+/* ---------------------------------- */
+
+/* Títulos das subseções */
+.highlights-title,
+.projects-list-title {
+    /* Reutiliza o estilo do título definido em About.css, mas garante margem */
+    font-size: 2rem;
+    color: var(--color-text-white);
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    border-left: 5px solid var(--color-primary-light); 
+}
+
+/* Container que agrupa o título "Projetos" e os botões de filtro */
+.projects-header-controls {
+    display: flex;
+    justify-content: space-between; /* Move os filtros para a direita */
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+/* ---------------------------------- */
+/* BOTÕES DE FILTRO               */
+/* ---------------------------------- */
+
+.project-filters {
+    display: flex;
+    gap: 1rem;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+/* Estilo para o botão ativo (destaque turquesa como no Figma) */
+.filter-btn.active {
+    color: var(--color-primary-light); /* Texto turquesa */
+    /* Linha de destaque na parte inferior do botão ativo */
+    border-bottom: 3px solid var(--color-primary-light); 
+    font-weight: bold;
+}
+
+.filter-btn:hover:not(.active) {
+    color: var(--color-text-white); /* Leve destaque no hover */
+}
+
+
+/* ---------------------------------- */
+/* RESPONSIVIDADE                 */
+/* ---------------------------------- */
+
+@media (max-width: 1024px) {
+    /* Em telas médias, os grids passam a ter 2 colunas */
+    .highlights-grid,
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* Em telas pequenas, o título e os filtros empilham */
+    .projects-header-controls {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+    }
+    
+    .projects-list-title {
+        margin-bottom: 0; /* Remove margem extra */
+    }
+
+    /* Em telas muito pequenas, o grid passa a ter 1 coluna */
+    .highlights-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
