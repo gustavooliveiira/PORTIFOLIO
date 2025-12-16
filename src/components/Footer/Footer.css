@@ -124,3 +124,56 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* src/components/Footer/Footer.css */
+
+/* ---------------------------------- */
+/* LIGHT MODE STYLES                  */
+/* ---------------------------------- */
+
+body.light .footer {
+    /* O fundo do rodapé deve ser o fundo principal claro */
+    background-color: var(--color-background-dark); 
+}
+
+/* Item de Contato */
+body.light .contact-item {
+    /* Cor do texto deve ser escura */
+    color: var(--color-text-light);
+}
+
+body.light .contact-item:hover {
+    /* Destaque primário (azul escuro) no hover */
+    color: var(--color-primary-light); 
+}
+
+/* Container do Ícone (Círculo) */
+body.light .contact-icon-box {
+    /* Fundo do círculo deve ser branco puro */
+    background-color: var(--color-background-medium); 
+    /* Adiciona uma borda sutil para separá-lo do fundo claro */
+    border: 1px solid var(--color-text-light);
+}
+
+body.light .contact-item:hover .contact-icon-box {
+    /* Borda de destaque primário no hover */
+    border-color: var(--color-primary-light); 
+}
+
+/* Placeholder do Ícone */
+body.light .icon-placeholder {
+    /* Cor do ícone deve ser a cor primária escura */
+    color: var(--color-primary-light); 
+}
+
+/* Divisor */
+body.light .footer-divider {
+    /* Linha divisória deve ser escura */
+    border-top: 1px solid var(--color-text-light); 
+}
+
+/* Copyright */
+body.light .copyright {
+    /* Texto do copyright deve ser escuro */
+    color: var(--color-text-light);
+}

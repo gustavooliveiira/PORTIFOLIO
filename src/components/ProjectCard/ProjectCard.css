@@ -80,3 +80,49 @@
     margin: 0;
     /* Estilo do texto "Netiflix" no Figma: cor clara sobre fundo escuro */
 }
+
+
+/* src/components/ProjectCard/ProjectCard.css */
+
+/* ---------------------------------- */
+/* LIGHT MODE STYLES                  */
+/* ---------------------------------- */
+
+body.light .project-card {
+    /* Fundo do card deve ser branco ou muito claro */
+    background-color: var(--color-background-medium); 
+    /* Borda de destaque deve ser a cor primária escura */
+    border: 1px solid var(--color-primary-light); 
+    /* Sombra clara */
+    box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+body.light .project-card:hover {
+    transform: translateY(-5px); 
+    /* Sombra de destaque no hover usando a cor primária escura */
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2); 
+}
+
+/* Área da Mídia */
+body.light .card-media-area {
+    /* O fundo da área de mídia deve ser claro */
+    background-color: var(--color-background-dark); 
+}
+
+/* Placeholder (quando não há mídia) */
+body.light .card-placeholder {
+    /* Inverte as cores para ter fundo escuro no tema claro */
+    background-color: var(--color-text-light); /* Fundo escuro */
+    color: var(--color-background-medium);     /* Texto claro */
+}
+
+/* Conteúdo (Título) */
+body.light .card-content {
+    /* Fundo deve ser claro */
+    background-color: var(--color-background-medium); 
+}
+
+body.light .card-title {
+    /* Título deve ser escuro */
+    color: var(--color-text-dark); 
+}

@@ -1,13 +1,38 @@
-/* src/components/Header.css */
+/* src/components/Header/Header.css */
 
+/*
+ * --------------------------------------------------
+ * ESTILOS GERAIS DO HEADER
+ * --------------------------------------------------
+ */
 .header {
     width: 100%;
-    /* Define o fundo como a cor secundária escura */
-    background-color: var(--color-background-medium); 
+    /* PROPRIEDADES FIXAS PARA SMART HEADER */
+    position: fixed; 
+    top: 0;
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    /* Fundo principal para cobrir o conteúdo ao rolar */
+    background-color: var(--color-background-dark); 
+    
     padding: 1rem 1.5rem;
     color: var(--color-text-white);
     
+    /* ADICIONADO: Sombra sutil para destacar a separação */
+    box-shadow: 0 2px 5px var(--color-shadow);
+    
+    /* LINHA ALTERADA: Adiciona transição para 'transform' */
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, transform 0.3s ease-in-out;
+    
+    /* Posição inicial: visível */
+    transform: translateY(0);
 }
+
+/* CLASSE ADICIONADA: Esconde o cabeçalho para fora da tela (usada pelo JS) */
+.header--hidden {
+    /* Move o cabeçalho 100% da sua altura para cima */
+    transform: translateY(-100%);
+}
+
 
 .header-container {
     display: flex;
@@ -30,7 +55,6 @@
     color: var(--color-text-white);
     font-size: 1.8rem;
     cursor: pointer;
-    /* Ajuste para alinhar verticalmente o ícone, se necessário */
     padding: 0.5rem; 
 }
 
@@ -46,24 +70,25 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 .lang-button:hover {
-    background-color: rgba(102, 252, 241, 0.1); /* Um leve destaque no hover */
+    background-color: var(--color-primary-light);
+    color: var(--color-background-dark); /* Inverte a cor no hover */
 }
 
 .arrow-down {
     font-size: 0.8rem;
 }
 
-/* --- Switch de Modo (Simulação do Toggle) --- */
+/* --- Switch de Modo (Toggle) --- */
 
 .mode-switch {
     position: relative;
     display: inline-block;
-    width: 45px; /* Largura total do switch */
-    height: 24px; /* Altura total do switch */
+    width: 45px; 
+    height: 24px; 
 }
 
 .mode-switch input {
@@ -82,7 +107,7 @@
     background-color: var(--color-background-dark);
     border: 1px solid var(--color-primary-light);
     transition: 0.4s;
-    border-radius: 24px; /* Formato arredondado */
+    border-radius: 24px; 
 }
 
 .slider:before {
@@ -102,5 +127,27 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-    transform: translateX(18px); /* Move o "botão" para a direita */
+    transform: translateX(18px); 
+}
+
+/* --------------------------------------------------
+ * LIGHT MODE STYLES
+ * --------------------------------------------------
+ */
+
+/* Ajustes gerais do Header no tema claro */
+body.light .header {
+    background-color: var(--color-background-medium); /* Fundo claro */
+    box-shadow: 0 2px 5px var(--color-shadow);
+}
+
+/* Ajustes no botão de idioma */
+body.light .lang-button {
+    color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+
+body.light .lang-button:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-medium);
 }

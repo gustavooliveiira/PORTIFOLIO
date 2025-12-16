@@ -6,7 +6,7 @@ import {
   type ReactNode,
   type FC
 } from 'react';
-import { ThemeContext } from './useTheme'; // Importa o valor do Contexto
+import { ThemeContext } from './useTheme'; 
 import { type ThemeContextType, type Theme } from './theme-types'; // Importa os tipos
 
 // -----------------------------------------------------
@@ -23,13 +23,13 @@ interface ThemeProviderProps {
 
 /**
  * @component ThemeProvider
- * @description Componente Provedor de Tema. Único export de componente.
+ * @description Componente Provedor de Tema.
+ * Este é o único export de componente.
+ * @param {ThemeProviderProps} props - Componentes filhos a serem renderizados.
  */
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => { 
-  // Usa o tipo Theme do theme-types.ts
   const [theme, setTheme] = useState<Theme>('dark');
 
-  // 2. Função de toggle.
   const toggleTheme = useCallback(() => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
   }, []);

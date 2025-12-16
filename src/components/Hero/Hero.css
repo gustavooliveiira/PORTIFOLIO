@@ -20,7 +20,7 @@
 }
 
 /* ---------------------------------- */
-/* TEXTO DE APRESENTAÇÃO     */
+/* TEXTO DE APRESENTAÇÃO              */
 /* ---------------------------------- */
 .hero-text {
     flex: 1; /* Permite que o texto ocupe o espaço */
@@ -42,7 +42,7 @@
 
 .title {
     font-size: 1.5rem;
-    color: var(--color-primary-light); /* Turquesa para destaque */
+    color: var(--color-primary-light); /* Turquesa para destaque (Dark Mode) */
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
@@ -54,7 +54,7 @@
 }
 
 /* ---------------------------------- */
-/* BOTÕES E ÍCONES           */
+/* BOTÕES DE AÇÃO                     */
 /* ---------------------------------- */
 
 /* Container dos botões de CV e Contato */
@@ -64,28 +64,18 @@
     margin-bottom: 2rem;
 }
 
-/* Estilos de base para todos os botões */
-.btn {
+/* Estilo base para todos os botões/links de ação no Hero */
+.hero-actions a {
     text-decoration: none;
     padding: 0.8rem 1.5rem;
     border-radius: 4px;
     font-weight: bold;
+    display: inline-block;
+    text-align: center;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-/* Botão Primário (Entrar Contato) */
-.btn-primary {
-    background-color: var(--color-primary-light);
-    color: var(--color-background-dark);
-    border: 2px solid var(--color-primary-light);
-}
-
-.btn-primary:hover {
-    background-color: transparent;
-    color: var(--color-primary-light);
-}
-
-/* Botão Secundário (Download CV) */
+/* Botão Secundário (Download CV) - Dark Mode */
 .btn-secondary {
     background-color: transparent;
     color: var(--color-primary-light);
@@ -94,18 +84,33 @@
 
 .btn-secondary:hover {
     background-color: var(--color-primary-light);
-    color: var(--color-background-dark);
+    color: var(--color-background-dark); /* Inverte a cor do texto no hover */
 }
 
-/* Container dos links sociais (GitHub, LinkedIn) */
+/* Botão Primário (Entrar Contato) - Dark Mode */
+.btn-primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-dark); /* Texto escuro no fundo claro */
+    border: 2px solid var(--color-primary-light);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary-light);
+}
+
+/* ---------------------------------- */
+/* LINKS SOCIAIS                      */
+/* ---------------------------------- */
+
 .social-links {
     display: flex;
     gap: 1.5rem;
 }
 
-/* Estilo para os ícones sociais (placeholders) */
 .social-icon {
-    font-size: 2.5rem;
+    width: 40px; /* Tamanho ajustado para os ícones */
+    height: 40px;
     color: var(--color-text-light);
     transition: color 0.3s;
 }
@@ -116,20 +121,18 @@
 
 
 /* ---------------------------------- */
-/* IMAGEM DE PERFIL          */
+/* IMAGEM DE PERFIL                   */
 /* ---------------------------------- */
 
-/* Container da imagem de perfil (circular) */
 .hero-image-container {
-    flex-shrink: 0; /* Impede que a imagem encolha */
+    flex-shrink: 0; 
     width: 180px; 
     height: 180px; 
-    border-radius: 50%; /* Torna a imagem circular */
-    border: 3px solid var(--color-primary-light); /* Borda de destaque */
+    border-radius: 50%; 
+    border: 3px solid var(--color-primary-light); 
     overflow: hidden;
 }
 
-/* Placeholder ou a própria imagem */
 .placeholder-image {
     width: 100%;
     height: 100%;
@@ -139,11 +142,63 @@
 }
 
 /* ---------------------------------- */
-/* RESPONSIVIDADE            */
+/* LIGHT MODE STYLES                  */
+/* ---------------------------------- */
+
+body.light .hero {
+    border-bottom: 2px solid var(--color-text-light); 
+}
+
+body.light .name {
+    color: var(--color-text-white); 
+}
+
+body.light .title {
+    color: var(--color-primary-light); 
+}
+
+body.light .hero-image-container {
+    border: 3px solid var(--color-primary-light); 
+}
+
+/* Botões - Light Mode */
+body.light .btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-light);
+    border: 2px solid var(--color-primary-light);
+}
+
+body.light .btn-secondary:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-medium); 
+}
+
+body.light .btn-primary {
+    background-color: var(--color-primary-light);
+    color: var(--color-background-medium); 
+    border: 2px solid var(--color-primary-light);
+}
+
+body.light .btn-primary:hover {
+    background-color: transparent;
+    color: var(--color-primary-light);
+}
+
+/* Ícones Sociais - Light Mode */
+body.light .social-links a .social-icon {
+    color: var(--color-text-light); 
+}
+
+body.light .social-links a:hover .social-icon {
+    color: var(--color-primary-light); 
+}
+
+/* ---------------------------------- */
+/* RESPONSIVIDADE                     */
 /* ---------------------------------- */
 @media (max-width: 768px) {
     .hero-content {
-        flex-direction: column; /* Pilha verticalmente em telas pequenas */
+        flex-direction: column;
         text-align: center;
     }
 
@@ -151,13 +206,16 @@
         max-width: 100%;
     }
 
-    .hero-actions, 
+    .hero-actions {
+        justify-content: center;
+    }
+
     .social-links {
-        justify-content: center; /* Centraliza botões e ícones */
+        justify-content: center;
     }
 
     .hero-image-container {
-        order: -1; /* Move a imagem para o topo (acima do texto) */
+        order: -1; 
         margin-bottom: 2rem;
     }
 }

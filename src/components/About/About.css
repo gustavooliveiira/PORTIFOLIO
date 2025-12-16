@@ -91,3 +91,36 @@
         height: 50px;
     }
 }
+
+/* src/components/About/About.css */
+
+/* ---------------------------------- */
+/* LIGHT MODE STYLES (Aplica-se quando body tem a classe 'light') */
+/* ---------------------------------- */
+
+body.light .about-section {
+    /* No tema claro, a linha divisória deve ser mais escura */
+    border-bottom: 2px solid var(--color-text-light); 
+}
+
+/* Títulos de Seção (Sobre mim, Tecnologias) */
+body.light .section-title {
+    /* Texto deve ser preto/escuro */
+    color: var(--color-text-white); 
+    /* A linha de destaque lateral deve ser a cor primária escura */
+    border-left: 5px solid var(--color-primary-light); 
+}
+
+/* Container do Ícone de Tecnologia */
+body.light .tech-icon-container {
+    /* Fundo deve ser branco puro ou muito claro no Light Mode */
+    background-color: var(--color-background-medium); 
+    /* A sombra deve ser aplicada com a nova variável de sombra clara */
+    box-shadow: 0 0 10px var(--color-shadow);
+}
+
+body.light .tech-icon-container:hover {
+    transform: translateY(-5px); 
+    /* Sombra de destaque no hover usando a cor primária escura */
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.4); /* (Usando o #0077B6 do light mode) */
+}

@@ -113,3 +113,37 @@
         gap: 1.5rem;
     }
 }
+
+
+/* src/components/ProjectsSection/ProjectsSection.css */
+
+/* ---------------------------------- */
+/* LIGHT MODE STYLES                  */
+/* ---------------------------------- */
+
+/* Títulos de Seção */
+body.light .highlights-title,
+body.light .projects-list-title {
+    /* Texto deve ser preto/escuro */
+    color: var(--color-text-white); 
+    /* Linha de destaque deve ser a cor primária escura */
+    border-left: 5px solid var(--color-primary-light); 
+}
+
+/* Botões de Filtro */
+body.light .filter-btn {
+    /* Texto deve ser escuro */
+    color: var(--color-text-light);
+}
+
+/* Botão Ativo */
+body.light .filter-btn.active {
+    /* Texto de destaque e linha devem usar a cor primária escura */
+    color: var(--color-primary-light); 
+    border-bottom: 3px solid var(--color-primary-light); 
+}
+
+body.light .filter-btn:hover:not(.active) {
+    /* Leve destaque escuro no hover */
+    color: var(--color-text-dark); 
+}

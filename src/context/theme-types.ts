@@ -1,9 +1,5 @@
 // src/context/theme-types.ts
 
-// -----------------------------------------------------
-// TIPAGEM (TYPESCRIPT) - Fonte Única de Verdade
-// -----------------------------------------------------
-
 /**
  * @type Theme
  * @description Define os nomes possíveis para os temas.

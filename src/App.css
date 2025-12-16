@@ -11,6 +11,8 @@
 
 .main-content {
     flex-grow: 1; /* Permite que o conteúdo principal ocupe o espaço restante */
+    /* LINHA ADICIONADA: Compensação para o Header Fixo (Smart Header) */
+    padding-top: 5rem; 
     padding: 2rem 1.5rem;
 }
 

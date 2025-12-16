@@ -1,98 +1,75 @@
 // src/components/ProjectCard/ProjectCard.tsx
 
 import React from 'react';
+// Importação necessária para conectar o clique ao modal
+import { useModal } from '../../modal/useModal'; 
 import './ProjectCard.css';
 
 // -----------------------------------------------------
-// TIPAGEM (TYPESCRIPT)
+// TIPAGEM CENTRALIZADA
 // -----------------------------------------------------
 
 /**
  * @interface ProjectData
- * @description Define a estrutura de dados que cada ProjectCard deve receber.
+ * @description Define a estrutura completa dos dados de um projeto (Exportada para uso em ProjectsSection)
  */
-  export interface ProjectData { // <-- O 'export' foi adicionado aqui!
-  title: string;
-  category: 'Mobile' | 'Desktop' | 'Web';
-  introduction: string; 
-  linkYoutube?: string; 
+export interface ProjectData {
+    title: string;
+    category: 'Mobile' | 'Desktop' | 'Web';
+    introduction: string;
+    linkYoutube?: string; 
+    linkRepository?: string; 
+    linkLive?: string; 
+}
+
+/**
+ * @interface ProjectCardProps
+ * @description Define as propriedades que o ProjectCard recebe.
+ */
+interface ProjectCardProps {
+    // O card recebe o objeto 'project' completo para passar ao modal
+    project: ProjectData;
 }
 
 // -----------------------------------------------------
-// FUNÇÃO PARA ESTRUTURAR O VÍDEO (EMBED)
-// -----------------------------------------------------
-
-/**
- * @function getEmbedUrl
- * @description Converte uma URL de visualização normal do YouTube para uma URL de embed.
- * @param {string} url - A URL completa do YouTube (ex: https://www.youtube.com/watch?v=...).
- * @returns {string} A URL pronta para ser usada no iframe (embed).
- */
-const getEmbedUrl = (url: string): string => {
-  // Regex simples corrigida para extrair o ID do vídeo de URLs comuns
-  // Removido o escape desnecessário em '&' no grupo de não-captura [^#&?]
-  const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-  const match = url.match(regExp);
-  
-  // Se o ID for encontrado (deve ter 11 caracteres), retorna a URL de embed
-  if (match && match[2].length === 11) {
-    return `https://www.youtube.com/embed/${match[2]}?autoplay=0&rel=0`;
-  }
-  // Retorna string vazia se não for um link de vídeo válido
-  return ''; 
-};
-
-
-// -----------------------------------------------------
-// COMPONENTE PRINCIPAL
+// COMPONENTE
 // -----------------------------------------------------
 
 /**
  * @component ProjectCard
- * @description Componente reutilizável para exibir um único projeto.
- * Atualmente exibe título e mídia (vídeo ou placeholder).
- * @param {ProjectData} props - Os dados do projeto a ser exibido.
+ * @description Componente individual de um projeto, agora clicável para abrir o modal.
  */
-const ProjectCard: React.FC<ProjectData> = ({ 
-  title, 
-  linkYoutube // Apenas as props usadas no JSX atual
-}) => {
-  
-  const embedUrl = linkYoutube ? getEmbedUrl(linkYoutube) : '';
-  const hasMedia = embedUrl.length > 0; // Verifica se temos uma URL de embed válida
+// A definição de React.FC<ProjectCardProps> garante a tipagem correta da função
+const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+    // Hook para abrir o modal ao clique
+    const { openModal } = useModal();
 
-  return (
-    <div className="project-card">
-      
-      {/* 1. Área da Mídia (Vídeo ou Placeholder) */}
-      <div className="card-media-area">
-        {hasMedia ? (
-          // Renderiza o vídeo do YouTube (iframe)
-          <iframe
-            className="youtube-embed"
-            src={embedUrl}
-            title={`Vídeo do projeto ${title}`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        ) : (
-          // Renderiza o placeholder (se não houver vídeo)
-          <div className="card-placeholder">
-            <span>Mídia Não Disponível</span>
-          </div>
-        )}
-      </div>
+    const { title, category } = project; 
 
-      {/* 2. Conteúdo de Texto (Título) */}
-      <div className="card-content">
-        <h3 className="card-title">{title}</h3>
-        {/* A introdução (introduction) foi removida daqui para resolver o warning.
-            Se você precisar dela, descomente e use: <p className="card-introduction">{introduction}</p> */}
-      </div>
-      
-    </div>
-  );
+    // O card é um contêiner clicável
+    return (
+        <div 
+            className="project-card"
+            // Chama o openModal passando os dados do projeto atual
+            onClick={() => openModal(project)}
+        >
+            {/* Ícone de Informação (Placeholder) */}
+            <div className="card-info-icon">
+                ⓘ
+            </div>
+
+            {/* Placeholder da Imagem/Mídia */}
+            <div className="card-media-placeholder">
+                {/* Aqui viria uma imagem ou thumbnail do vídeo */}
+            </div>
+
+            {/* Barra Inferior com Título */}
+            <div className="card-footer">
+                <h4 className="card-title">{title}</h4>
+                <span className={`card-category tag-${category.toLowerCase()}`}>{category}</span>
+            </div>
+        </div>
+    );
 };
 
 export default ProjectCard;

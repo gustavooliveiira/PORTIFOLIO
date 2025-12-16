@@ -8,12 +8,12 @@
  */
 body.dark {
   /* Cores Principais do Dark Mode */
-  --color-background-dark: #101820; /* Fundo principal muito escuro */
-  --color-background-medium: #1F2833; /* Fundo de seção secundária (cinza escuro) */
-  --color-primary-light: #66FCF1; /* Turquesa/Ciano - Destaque */
-  --color-text-light: #C5C6C7; /* Texto cinza claro */
-  --color-text-white: #FFFFFF; /* Texto branco puro */
-  --color-shadow: rgba(0, 0, 0, 0.4); /* Sombra escura */
+  --color-background-dark: #101820; 
+  --color-background-medium: #1F2833; 
+  --color-primary-light: #66FCF1; 
+  --color-text-light: #C5C6C7; 
+  --color-text-white: #FFFFFF; 
+  --color-shadow: rgba(0, 0, 0, 0.4); 
 }
 
 /*
@@ -24,12 +24,12 @@ body.dark {
  */
 body.light {
   /* Cores Principais do Light Mode */
-  --color-background-dark: #F0F0F0; /* Fundo principal muito claro (quase branco) */
-  --color-background-medium: #FFFFFF; /* Fundo de seção secundária (branco puro) */
-  --color-primary-light: #0077B6; /* Azul Escuro - Destaque (pode ser o mesmo turquesa, mas escuro) */
-  --color-text-light: #333333; /* Texto cinza escuro */
-  --color-text-white: #000000; /* Texto preto puro */
-  --color-shadow: rgba(0, 0, 0, 0.1); /* Sombra clara */
+  --color-background-dark: #F0F0F0; 
+  --color-background-medium: #FFFFFF; 
+  --color-primary-light: #0077B6; 
+  --color-text-light: #333333; 
+  --color-text-white: #000000; 
+  --color-shadow: rgba(0, 0, 0, 0.1); 
 }
 
 /*
@@ -39,8 +39,9 @@ body.light {
  */
 
 /* Tipografia */
+
 :root {
-  /* Substitua 'Nome da Fonte' pela fonte real do seu Figma, se souber. */
+  
   --font-family-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-size-base: 1rem;
 }
@@ -54,12 +55,12 @@ body.light {
 
 /* Estilos aplicados ao corpo da página (usa as variáveis definidas) */
 body {
-  /* O CSS 'var()' automaticamente usa o valor do tema ativo */
+
   background-color: var(--color-background-dark);
   color: var(--color-text-light);
   font-family: var(--font-family-main);
   line-height: 1.6;
   min-height: 100vh;
-  /* Transição suave para a cor de fundo e texto na troca de tema */
+
   transition: background-color 0.5s ease, color 0.5s ease; 
 }

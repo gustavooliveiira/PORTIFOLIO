@@ -7,7 +7,6 @@ import { type ThemeContextType } from './theme-types'; // Importa a tipagem
 const initialContextValue: ThemeContextType = {
     theme: 'dark',
     toggleTheme: () => {
-        // Placeholder para quando o hook é chamado fora do Provider
         throw new Error('useTheme must be used within a ThemeProvider');
     }
 };
@@ -25,6 +24,5 @@ export const ThemeContext = createContext<ThemeContextType>(initialContextValue)
  */
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
-  // Não precisamos verificar 'undefined' aqui porque definimos um initialContextValue
   return context;
 };
