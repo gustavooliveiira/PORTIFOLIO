@@ -1,128 +1,67 @@
 /* src/components/ProjectCard/ProjectCard.css */
 
-/*
- * Estilo do container principal do card.
- * Define o formato básico, fundo e sombra.
- */
 .project-card {
-    display: flex;
-    flex-direction: column;
-    /* Fundo ligeiramente mais claro que o fundo principal */
-    background-color: var(--color-background-medium); 
-    border-radius: 8px;
-    overflow: hidden; /* Garante que a mídia e o conteúdo fiquem dentro das bordas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    /* Borda turquesa de destaque */
-    border: 1px solid var(--color-primary-light); 
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
-    height: 100%; /* Garante que cards em um grid tenham altura igual */
+  position: relative;
+  background-color: #1a1c22; /* Fundo escuro igual à sua referência */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  /* Efeito de transição suave */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+  
+  /* Aspect Ratio para manter os cards no mesmo tamanho (16:9) */
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Efeito de hover para indicar interatividade e escalabilidade */
+/* --- Efeito de Aumentar no Hover (Netflix Style) --- */
 .project-card:hover {
-    transform: translateY(-5px); /* Move levemente para cima */
-    box-shadow: 0 8px 20px rgba(102, 252, 241, 0.4); /* Sombra mais visível */
+  transform: scale(1.08); /* Aumenta o card */
+  z-index: 10;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+  border-color: #8257e5; /* Cor de destaque opcional na borda */
 }
 
-/* ---------------------------------- */
-/* ÁREA DA MÍDIA (VÍDEO/IMAGEM)  */
-/* ---------------------------------- */
-
-/* Container da mídia */
-.card-media-area {
-    /* Proporção 16:9 ou 4:3. Aqui usamos um padding-bottom para criar a altura */
-    width: 100%;
-    /* Define uma altura base para o placeholder ou vídeo */
-    aspect-ratio: 4 / 3; 
-    position: relative;
-    background-color: var(--color-background-dark); /* Fundo escuro para a área de mídia */
+/* --- Imagem de Capa --- */
+.card-media-placeholder {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: filter 0.3s ease;
 }
 
-/* Estilo para o iframe de embed do YouTube */
-.youtube-embed {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* --- Informações do Card (Título e Categoria) --- */
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 1rem 0.8rem;
+  
+  /* Gradiente escuro para o texto sempre ser legível sobre a imagem */
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
 }
 
-/* Estilo para o placeholder (quando não há vídeo/imagem) */
-.card-placeholder {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    /* Estilo de caixa cinza claro visto no Figma */
-    background-color: var(--color-text-light); 
-    color: var(--color-background-dark);
-    font-weight: bold;
-}
-
-/* ---------------------------------- */
-/* CONTEÚDO (TÍTULO)             */
-/* ---------------------------------- */
-
-/* Container para o título e introdução */
-.card-content {
-    padding: 1rem 0.8rem;
-    text-align: center;
-    /* Alinhado ao design do Figma, o título tem um fundo escuro */
-    background-color: var(--color-background-medium); 
-}
-
-/* Estilo do título do projeto */
 .card-title {
-    font-size: 1.2rem;
-    color: var(--color-text-white);
-    margin: 0;
-    /* Estilo do texto "Netiflix" no Figma: cor clara sobre fundo escuro */
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
-
-/* src/components/ProjectCard/ProjectCard.css */
-
-/* ---------------------------------- */
-/* LIGHT MODE STYLES                  */
-/* ---------------------------------- */
-
-body.light .project-card {
-    /* Fundo do card deve ser branco ou muito claro */
-    background-color: var(--color-background-medium); 
-    /* Borda de destaque deve ser a cor primária escura */
-    border: 1px solid var(--color-primary-light); 
-    /* Sombra clara */
-    box-shadow: 0 4px 10px var(--color-shadow);
+.card-category {
+  font-size: 0.8rem;
+  color: #a8a8b3;
 }
 
-body.light .project-card:hover {
-    transform: translateY(-5px); 
-    /* Sombra de destaque no hover usando a cor primária escura */
-    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2); 
-}
-
-/* Área da Mídia */
-body.light .card-media-area {
-    /* O fundo da área de mídia deve ser claro */
-    background-color: var(--color-background-dark); 
-}
-
-/* Placeholder (quando não há mídia) */
-body.light .card-placeholder {
-    /* Inverte as cores para ter fundo escuro no tema claro */
-    background-color: var(--color-text-light); /* Fundo escuro */
-    color: var(--color-background-medium);     /* Texto claro */
-}
-
-/* Conteúdo (Título) */
-body.light .card-content {
-    /* Fundo deve ser claro */
-    background-color: var(--color-background-medium); 
-}
-
-body.light .card-title {
-    /* Título deve ser escuro */
-    color: var(--color-text-dark); 
+/* Ícone de Info (ⓘ) */
+.card-info-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  z-index: 2;
 }

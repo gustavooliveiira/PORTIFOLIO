@@ -11,6 +11,7 @@ export interface TranslationKeys {
   };
   about: {
     title: string;
+    technologiesTitle: string;
   };
   projects: {
     title: string;
@@ -40,6 +41,7 @@ export const translations: Record<'pt' | 'en', TranslationKeys> = {
     },
     about: {
       title: "Sobre Mim",
+      technologiesTitle: "Tecnologias"
     },
     projects: {
       title: "Projetos",
@@ -63,6 +65,7 @@ export const translations: Record<'pt' | 'en', TranslationKeys> = {
     },
     about: {
       title: "About Me",
+      technologiesTitle: "Technologies",
     },
     projects: {
       title: "Projects",
