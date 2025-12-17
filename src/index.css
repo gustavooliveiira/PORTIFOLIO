@@ -1,5 +1,12 @@
 /* src/index.css */
 
+/**
+ * @description 1. IMPORTAÇÃO DA FONTE JETBRAINS MONO (Estilo Terminal)
+ * Esta fonte é monospace, o que significa que cada caractere ocupa o mesmo espaço horizontal,
+ * criando o aspecto clássico de editores de código e terminais.
+ */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 /*
  * --------------------------------------------------------------------------
  * VARIÁVEIS DE TEMA PADRÃO (DARK MODE)
@@ -34,15 +41,17 @@ body.light {
 
 /*
  * --------------------------------------------------------------------------
- * ESTILOS GLOBAIS COMUNS (APLICAM AS VARIÁVEIS DEFINIDAS ACIMA)
+ * ESTILOS GLOBAIS COMUNS
  * --------------------------------------------------------------------------
  */
 
 /* Tipografia */
-
 :root {
-  
-  --font-family-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /**
+   * @description Alterado para 'JetBrains Mono' como prioridade principal.
+   * Isso aplicará o estilo de terminal em todo o projeto.
+   */
+  --font-family-main: 'JetBrains Mono', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   --font-size-base: 1rem;
 }
 
@@ -55,12 +64,13 @@ body.light {
 
 /* Estilos aplicados ao corpo da página (usa as variáveis definidas) */
 body {
-
   background-color: var(--color-background-dark);
   color: var(--color-text-light);
+  /* A variável abaixo agora utiliza a fonte JetBrains Mono carregada no topo */
   font-family: var(--font-family-main);
   line-height: 1.6;
   min-height: 100vh;
 
+  /* Transição suave para troca de temas */
   transition: background-color 0.5s ease, color 0.5s ease; 
 }

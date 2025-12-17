@@ -1,12 +1,13 @@
 // src/components/About/About.tsx
 
 import React from 'react';
-import { useLanguage } from '../../i18n/useLanguage'; 
+import { useLanguage } from '../../i18n/useLanguage'; // Hook para gerenciar o idioma
 import './About.css';
 
-// -----------------------------------------------------
-// 1. IMPORTAÇÃO DOS SEUS ARQUIVOS SVG
-// -----------------------------------------------------
+/**
+ * @description Importação dos ícones de tecnologia salvos na pasta src/assets.
+ * O Vite requer a importação direta para arquivos dentro da pasta /src.
+ */
 import jsIcon from '../../assets/JS.svg';
 import tsIcon from '../../assets/TS.svg';
 import htmlIcon from '../../assets/HTML.svg';
@@ -17,40 +18,48 @@ import pythonIcon from '../../assets/Python.svg';
 import phpIcon from '../../assets/PHP.ico';
 import dockerIcon from '../../assets/Docker.svg';
 
+/**
+ * @component About
+ * @description Seção que apresenta a biografia traduzida e o grid de tecnologias.
+ */
 const About: React.FC = () => {
-  const { t, lang } = useLanguage(); 
+  /**
+   * @const t
+   * @description Extrai o objeto de tradução atual do contexto de idioma.
+   */
+  const { t } = useLanguage(); 
 
-  const tempAboutText = lang === 'pt' ? 
-      "Desenvolvedor Full Stack, apaixonado por explorar diferentes áreas do mundo da tecnologia e constantemente em busca de aprimoramento. Ainda não defini um caminho específico para minha carreira, por isso mantenho-me aberto e disponível para atuar em diversas áreas." :
-      "Full Stack Developer, passionate about exploring different areas of the tech world and constantly seeking improvement. I have not yet defined a specific career path, so I remain open and available to work in various areas.";
-
-  // 2. LISTA USANDO AS VARIÁVEIS IMPORTADAS
+  /**
+   * @const techIcons
+   * @description Lista de tecnologias mapeadas com as variáveis importadas acima.
+   * Preenchi os nomes para que apareçam embaixo dos ícones como na sua referência.
+   */
   const techIcons = [
-    { name: '', src: jsIcon }, 
-    { name: '', src: tsIcon },
-    { name: '', src: htmlIcon },
-    { name: '', src: cssIcon },
-    { name: '', src: nodeIcon },
-    { name: '', src: reactIcon },
-    { name: '', src: pythonIcon },
-    { name: '', src: phpIcon },
-    { name: '', src: dockerIcon },
+    { name: 'JavaScript', src: jsIcon }, 
+    { name: 'TypeScript', src: tsIcon },
+    { name: 'HTML5', src: htmlIcon },
+    { name: 'CSS3', src: cssIcon },
+    { name: 'Node.js', src: nodeIcon },
+    { name: 'React', src: reactIcon },
+    { name: 'Python', src: pythonIcon },
+    { name: 'PHP', src: phpIcon },
+    { name: 'Docker', src: dockerIcon },
   ];
 
   return (
     <section className="about-section">
-      {/* Título da seção principal */}
+      {/* Título da seção vindo do dicionário de traduções */}
       <h2 className="section-title about-title">{t.about.title}</h2>
       
-      {/* Texto de biografia */}
-      <p className="about-text">{tempAboutText}</p> 
+      {/* Biografia traduzida diretamente do t.about.bio (Lógica limpa) */}
+      <p className="about-text">{t.about.bio}</p> 
       
-      {/* TÍTULO DE TECNOLOGIAS CORRIGIDO (Tag fechada corretamente) */}
+      {/* Título da seção de Tecnologias vindo do i18n */}
       <h3 className="section-title technologies-title">
         {t.about.technologiesTitle}
       </h3> 
       
-      {/* Lista de ícones */}
+      {/* Container da lista de ícones */}
       <div className="technologies-list">
         {techIcons.map((tech, index) => (
           <div key={index} className="tech-icon-container">
@@ -60,6 +69,7 @@ const About: React.FC = () => {
               className="tech-icon"
               title={tech.name}
             />
+            {/* Nome da tecnologia exibido abaixo do ícone */}
             <span className="tech-name">{tech.name}</span>
           </div>
         ))}

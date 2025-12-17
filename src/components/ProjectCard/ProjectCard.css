@@ -2,7 +2,7 @@
 
 .project-card {
   position: relative;
-  background-color: #1a1c22; /* Fundo escuro igual à sua referência */
+  background-color: #1a1c22;
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -13,14 +13,17 @@
   /* Aspect Ratio para manter os cards no mesmo tamanho (16:9) */
   aspect-ratio: 16 / 9;
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* GARANTIA DE CLIQUE: Assegura que o card aceite interações */
+  pointer-events: auto; 
 }
 
-/* --- Efeito de Aumentar no Hover (Netflix Style) --- */
+/* --- Efeito de Aumentar no Hover --- */
 .project-card:hover {
-  transform: scale(1.08); /* Aumenta o card */
+  transform: scale(1.08);
   z-index: 10;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-  border-color: #8257e5; /* Cor de destaque opcional na borda */
+  border-color: #8257e5; 
 }
 
 /* --- Imagem de Capa --- */
@@ -30,18 +33,20 @@
   background-size: cover;
   background-position: center;
   transition: filter 0.3s ease;
+  /* Impede que a div da imagem bloqueie o clique no card */
+  pointer-events: none; 
 }
 
-/* --- Informações do Card (Título e Categoria) --- */
+/* --- Informações do Card --- */
 .card-footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   padding: 1.5rem 1rem 0.8rem;
-  
-  /* Gradiente escuro para o texto sempre ser legível sobre a imagem */
   background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  /* Impede que o rodapé bloqueie o clique no card */
+  pointer-events: none; 
 }
 
 .card-title {
@@ -64,4 +69,6 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 1.2rem;
   z-index: 2;
+  /* Impede que o ícone bloqueie o clique no card */
+  pointer-events: none; 
 }

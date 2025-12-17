@@ -1,126 +1,158 @@
 /* src/components/About/About.css */
 
 /*
- * Estilos da Seção "Sobre Mim" e "Tecnologias"
- * Aplica padding e uma linha divisória.
+ * --------------------------------------------------------------------------
+ * ESTRUTURA GERAL DA SEÇÃO
+ * --------------------------------------------------------------------------
  */
 .about-section {
     padding: 4rem 0;
-    /* Linha divisória sutil para separar do componente de projetos/destaques que virá */
     border-bottom: 2px solid var(--color-background-medium); 
 }
 
-/* ---------------------------------- */
-/* TÍTULOS E TEXTO SOBRE MIM  */
-/* ---------------------------------- */
+/*
+ * --------------------------------------------------------------------------
+ * TÍTULOS E TEXTO
+ * --------------------------------------------------------------------------
+ */
 
-/* Estilo para todos os títulos de seção (Sobre, Tecnologias, etc.) */
 .section-title {
     font-size: 2rem;
     color: var(--color-text-white);
     margin-bottom: 1.5rem;
-    border-left: 5px solid var(--color-primary-light); /* Linha de destaque lateral (opcional) */
+    border-left: 5px solid var(--color-primary-light);
     padding-left: 1rem;
-    line-height: 1; /* Garante que o texto se alinhe bem com a borda */
+    line-height: 1;
 }
 
 .about-title {
-    /* Margem extra se necessário para separar do conteúdo anterior */
     margin-top: 0; 
 }
 
-/* Estilo para o parágrafo da biografia */
 .about-text {
     font-size: 1.1rem;
     line-height: 1.6;
-    margin-bottom: 3rem; /* Espaço antes da próxima subseção */
+    margin-bottom: 3rem; 
     color: var(--color-text-light);
+    max-width: 900px;
 }
 
 .technologies-title {
     margin-bottom: 2rem;
 }
 
-/* ---------------------------------- */
-/* LISTA DE TECNOLOGIAS       */
-/* ---------------------------------- */
+/*
+ * --------------------------------------------------------------------------
+ * LISTA DE TECNOLOGIAS (CARDS MENORES)
+ * --------------------------------------------------------------------------
+ */
 
-/* Container que usa Flexbox ou Grid para organizar os ícones */
 .technologies-list {
     display: flex;
-    flex-wrap: wrap; /* Permite que os ícones quebrem a linha */
-    gap: 1.5rem; /* Espaço entre os ícones */
-    /* Ajuste de largura máxima para centralizar ou limitar */
-    max-width: 800px; 
+    flex-wrap: wrap; 
+    gap: 1.2rem; /* Gap levemente reduzido para acompanhar o tamanho menor */
+    max-width: 100%; 
 }
 
-/* Container individual de cada ícone (útil se precisarmos de tooltip ou nome) */
+/* Container Individual (O Card) */
 .tech-icon-container {
-    /* Define o tamanho base para o ícone */
-    width: 60px; 
-    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* ALTERADO: Tamanho reduzido de 100px para 85px */
+    width: 85px;
+    height: 85px;
+    
     padding: 0.5rem;
-    border-radius: 8px;
+    border-radius: 10px; /* Borda levemente ajustada */
     background-color: var(--color-background-medium);
-    transition: transform 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* --- EFEITO HOVER (GLOW) --- */
 .tech-icon-container:hover {
-    transform: translateY(-5px); /* Efeito sutil de elevação */
-    box-shadow: 0 5px 15px rgba(102, 252, 241, 0.2); /* Sombra turquesa */
+    transform: translateY(-5px) scale(1.05); 
+    background-color: #252830; 
+    box-shadow: 0 0 15px rgba(102, 252, 241, 0.3); 
+    border-color: var(--color-primary-light);
 }
 
-/* Estilo para o elemento <img> do ícone */
+/* Ícone (SVG) */
 .tech-icon {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Garante que o ícone caiba dentro do container */
+    /* ALTERADO: Reduzido de 40px para 32px */
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem; 
+    object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
-/* ---------------------------------- */
-/* RESPONSIVIDADE            */
-/* ---------------------------------- */
+.tech-icon-container:hover .tech-icon {
+    transform: scale(1.1);
+}
+
+/* Nome da Tecnologia */
+.tech-name {
+    /* ALTERADO: Fonte levemente menor */
+    font-size: 0.7rem;
+    color: var(--color-text-white);
+    font-weight: 500;
+    text-align: center;
+}
+
+/*
+ * --------------------------------------------------------------------------
+ * RESPONSIVIDADE
+ * --------------------------------------------------------------------------
+ */
 @media (max-width: 600px) {
     .section-title {
         font-size: 1.7rem;
-        padding-left: 0.5rem; /* Menor recuo da linha de destaque */
+        padding-left: 0.5rem;
     }
     
     .tech-icon-container {
-        width: 50px; /* Reduz o tamanho dos ícones em telas menores */
-        height: 50px;
+        /* Em telas de celular, ficam ainda menores (70px) */
+        width: 70px; 
+        height: 70px;
+    }
+
+    .tech-icon {
+        width: 28px;
+        height: 28px;
     }
 }
 
-/* src/components/About/About.css */
-
-/* ---------------------------------- */
-/* LIGHT MODE STYLES (Aplica-se quando body tem a classe 'light') */
-/* ---------------------------------- */
-
+/*
+ * --------------------------------------------------------------------------
+ * LIGHT MODE STYLES
+ * --------------------------------------------------------------------------
+ */
 body.light .about-section {
-    /* No tema claro, a linha divisória deve ser mais escura */
     border-bottom: 2px solid var(--color-text-light); 
 }
 
-/* Títulos de Seção (Sobre mim, Tecnologias) */
 body.light .section-title {
-    /* Texto deve ser preto/escuro */
     color: var(--color-text-white); 
-    /* A linha de destaque lateral deve ser a cor primária escura */
     border-left: 5px solid var(--color-primary-light); 
 }
 
-/* Container do Ícone de Tecnologia */
 body.light .tech-icon-container {
-    /* Fundo deve ser branco puro ou muito claro no Light Mode */
-    background-color: var(--color-background-medium); 
-    /* A sombra deve ser aplicada com a nova variável de sombra clara */
-    box-shadow: 0 0 10px var(--color-shadow);
+    background-color: #ffffff; 
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 body.light .tech-icon-container:hover {
-    transform: translateY(-5px); 
-    /* Sombra de destaque no hover usando a cor primária escura */
-    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.4); /* (Usando o #0077B6 do light mode) */
+    background-color: #f8f9fa;
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3); 
+    border-color: var(--color-primary-light);
+}
+
+body.light .tech-name {
+    color: #333; 
 }

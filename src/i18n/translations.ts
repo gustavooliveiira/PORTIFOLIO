@@ -1,6 +1,9 @@
 // src/i18n/translations.ts
 
-// Define a estrutura para cada seção
+/**
+ * @interface TranslationKeys
+ * @description Define o contrato obrigatório de chaves para as traduções do portfólio.
+ */
 export interface TranslationKeys {
   hero: {
     greeting: string;
@@ -11,7 +14,8 @@ export interface TranslationKeys {
   };
   about: {
     title: string;
-    technologiesTitle: string;
+    technologiesTitle: string; 
+    bio: string;               // <-- ADICIONADO: Nova chave para o texto da biografia
   };
   projects: {
     title: string;
@@ -28,7 +32,7 @@ export interface TranslationKeys {
 
 /**
  * @const translations
- * @description Contém todos os textos do portfólio traduzidos em PT e EN.
+ * @description Dicionário contendo todos os textos do portfólio traduzidos em PT e EN.
  */
 export const translations: Record<'pt' | 'en', TranslationKeys> = {
   pt: {
@@ -41,7 +45,9 @@ export const translations: Record<'pt' | 'en', TranslationKeys> = {
     },
     about: {
       title: "Sobre Mim",
-      technologiesTitle: "Tecnologias"
+      technologiesTitle: "Tecnologias",
+      // ADICIONADO: Texto da biografia em português
+      bio: "Desenvolvedor Full Stack, apaixonado por explorar diferentes áreas do mundo da tecnologia e constantemente em busca de aprimoramento. Ainda não defini um caminho específico para minha carreira, por isso mantenho-me aberto e disponível para atuar em diversas áreas."
     },
     projects: {
       title: "Projetos",
@@ -66,6 +72,8 @@ export const translations: Record<'pt' | 'en', TranslationKeys> = {
     about: {
       title: "About Me",
       technologiesTitle: "Technologies",
+      // ADICIONADO: Texto da biografia em inglês
+      bio: "Full Stack Developer, passionate about exploring different areas of the tech world and constantly seeking improvement. I have not yet defined a specific career path, so I remain open and available to work in various areas."
     },
     projects: {
       title: "Projects",

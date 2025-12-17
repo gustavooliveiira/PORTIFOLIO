@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
             {/* Botão para download do currículo - USANDO TRADUÇÃO: t.hero.downloadCV */}
             <a href="#" className="btn btn-secondary">{t.hero.downloadCV}</a>
             {/* Botão principal para contato - USANDO TRADUÇÃO: t.hero.contact */}
-            <a href="#" className="btn btn-primary">{t.hero.contact}</a>
+            <a href="https://wa.link/iqe6ml" className="btn btn-primary">{t.hero.contact}</a>
           </div>
 
           {/* Container dos Ícones Sociais (GitHub e LinkedIn) */}

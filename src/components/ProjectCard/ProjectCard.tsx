@@ -1,7 +1,9 @@
 // src/components/ProjectCard/ProjectCard.tsx
 
 import React from 'react';
-// Importação necessária para conectar o clique ao modal
+/**
+ * @description Importação necessária para conectar o clique ao modal global.
+ */
 import { useModal } from '../../modal/useModal'; 
 import './ProjectCard.css';
 
@@ -11,7 +13,8 @@ import './ProjectCard.css';
 
 /**
  * @interface ProjectData
- * @description Define a estrutura completa dos dados de um projeto (Exportada para uso em ProjectsSection)
+ * @description Define a estrutura completa dos dados de um projeto.
+ * Esta interface é exportada para ser usada no ProjectsSection.
  */
 export interface ProjectData {
     title: string;
@@ -37,36 +40,45 @@ interface ProjectCardProps {
 
 /**
  * @component ProjectCard
- * @description Componente individual de um projeto, agora clicável para abrir o modal.
+ * @description Componente individual de um projeto que, ao ser clicado, dispara o modal.
  */
-// A definição de React.FC<ProjectCardProps> garante a tipagem correta da função
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-    // Hook para abrir o modal ao clique
+    // Hook para abrir o modal enviando os dados do projeto
     const { openModal } = useModal();
 
     const { title, category } = project; 
 
-    // O card é um contêiner clicável
+    /**
+     * @function handleCardClick
+     * @description Função para garantir que o clique abra o modal.
+     */
+    const handleCardClick = () => {
+        openModal(project);
+    };
+
     return (
         <div 
             className="project-card"
-            // Chama o openModal passando os dados do projeto atual
-            onClick={() => openModal(project)}
+            // O evento onClick no div principal garante que qualquer parte do card seja clicável
+            onClick={handleCardClick}
+            style={{ cursor: 'pointer' }}
         >
-            {/* Ícone de Informação (Placeholder) */}
+            {/* Ícone de Informação (ⓘ) posicionado no topo */}
             <div className="card-info-icon">
                 ⓘ
             </div>
 
-            {/* Placeholder da Imagem/Mídia */}
+            {/* Container para a imagem ou thumbnail do projeto */}
             <div className="card-media-placeholder">
-                {/* Aqui viria uma imagem ou thumbnail do vídeo */}
+                {/* Aqui a imagem é renderizada via CSS background ou tag img futuramente */}
             </div>
 
-            {/* Barra Inferior com Título */}
+            {/* Rodapé do card contendo o Título e a Categoria */}
             <div className="card-footer">
                 <h4 className="card-title">{title}</h4>
-                <span className={`card-category tag-${category.toLowerCase()}`}>{category}</span>
+                <span className={`card-category tag-${category.toLowerCase()}`}>
+                    {category}
+                </span>
             </div>
         </div>
     );
