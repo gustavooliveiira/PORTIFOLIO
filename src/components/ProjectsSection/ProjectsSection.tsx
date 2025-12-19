@@ -1,14 +1,15 @@
 // src/components/ProjectsSection/ProjectsSection.tsx
-
-// Importações necessárias: React Hooks, Componentes e Contextos
 import React, { useState, useEffect, useCallback } from 'react';
 import ProjectCard from '../ProjectCard/ProjectCard'; 
-// LINHA CORRIGIDA 1: Usando 'import type' para ProjectData, conforme exigido pelo TypeScript moderno
 import type { ProjectData } from '../ProjectCard/ProjectCard'; 
 import { useLanguage } from '../../i18n/useLanguage'; 
-// LINHA REMOVIDA/COMENTADA 2: useModal não é usado neste componente.
-// import { useModal } from '../../modal/useModal'; 
 import './ProjectsSection.css';
+import thumbNetflix from '../../assets/Thumb.png';
+
+
+//Importe das Thumb
+
+
 
 // -----------------------------------------------------
 // DADOS INICIAIS 
@@ -20,14 +21,16 @@ type FilterType = 'Todos' | ProjectData['category'];
 // Dados de exemplo (Mantenha esta estrutura para preenchimento futuro)
 const initialProjects: ProjectData[] = [
     { 
-        title: "Netflix Clone Web", 
+        title: "Netflix TEST", 
         category: 'Web', 
+        imageUrl: thumbNetflix,
         introduction: "Introdução do projeto Netflix Clone.", 
         linkYoutube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     },
     { 
         title: "App de Receitas Mobile", 
         category: 'Mobile', 
+        imageUrl: thumbNetflix,
         introduction: "Introdução do App de Receitas.",
     },
     { 

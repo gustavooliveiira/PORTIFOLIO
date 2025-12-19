@@ -2,51 +2,39 @@
 
 import React from 'react';
 import './Hero.css';
-// LINHA CORRIGIDA: Importa o hook do novo local 'useLanguage.ts'
 import { useLanguage } from '../../i18n/useLanguage'; 
 
+// --- IMPORTAÇÃO DOS ÍCONES E DA SUA FOTO ---
 import githubIcon from '../../assets/github.svg'; 
 import linkedinIcon from '../../assets/linkedin.svg';
+// IMPORTANTE: Importe sua foto aqui. Vou usar o nome 'profilePic'
+import profilePic from '../../assets/MENATAL.png'; 
 
-// --- Dados Estáticos do Componente (Apenas o nome que não será traduzido) ---
 const name = "Gustavo Oliveira"; 
-// As variáveis de texto foram removidas, pois agora virão do Contexto (t)
 
 /**
  * @component Hero
- * @description Componente principal da seção de Boas-Vindas/Hero.
- * Exibe a apresentação do desenvolvedor, foto e links de ação, com suporte a i18n.
- * É o primeiro componente renderizado no App.
+ * @description Exibe a apresentação do desenvolvedor e sua foto de perfil.
  */
 const Hero: React.FC = () => {
-  // Obtém o objeto de tradução 't'
   const { t } = useLanguage(); 
   
   return (
     <section className="hero">
       <div className="hero-content">
         
-        {/* Container do Bloco de Texto (Saudação, Nome, Título) */}
         <div className="hero-text">
-          {/* USANDO TRADUÇÃO: t.hero.greeting */}
           <p className="greeting">{t.hero.greeting}</p> 
           <h1 className="name">{name}</h1>
-          {/* USANDO TRADUÇÃO: t.hero.title */}
           <h2 className="title">{t.hero.title}</h2> 
-          {/* USANDO TRADUÇÃO: t.hero.welcomeMessage */}
           <p className="welcome-message">{t.hero.welcomeMessage}</p> 
 
-          {/* Container dos Botões de Ação */}
           <div className="hero-actions">
-            {/* Botão para download do currículo - USANDO TRADUÇÃO: t.hero.downloadCV */}
             <a href="#" className="btn btn-secondary">{t.hero.downloadCV}</a>
-            {/* Botão principal para contato - USANDO TRADUÇÃO: t.hero.contact */}
             <a href="https://wa.link/iqe6ml" className="btn btn-primary">{t.hero.contact}</a>
           </div>
 
-          {/* Container dos Ícones Sociais (GitHub e LinkedIn) */}
           <div className="social-links">
-            {/* Link para o LinkedIn */}
             <a href="https://www.linkedin.com/in/gustavo-henrique04-dev" target="blank" aria-label="Linkedin">
               <img src={linkedinIcon} alt="Linkedin" height="40" width="40"/>
             </a>
@@ -57,10 +45,15 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Container da Imagem de Perfil */}
+        {/* Container da Imagem de Perfil Atualizado */}
         <div className="hero-image-container">
-          {/* Placeholder da imagem, que deve ser substituído por <img /> */}
-          <div className="placeholder-image"></div> 
+          <div className="profile-circle">
+            <img 
+              src={profilePic} 
+              alt={name} 
+              className="profile-img" 
+            />
+          </div>
         </div>
 
       </div>

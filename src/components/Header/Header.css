@@ -38,7 +38,7 @@
     display: flex;
     justify-content: space-between; /* Coloca os elementos nas extremidades */
     align-items: center;
-    max-width: 1900px; /* Limita a largura em telas maiores */
+    max-width: 1700px; /* Limita a largura em telas maiores */
     margin: 0 auto;
 }
 

@@ -14,11 +14,11 @@ import './ProjectCard.css';
 /**
  * @interface ProjectData
  * @description Define a estrutura completa dos dados de um projeto.
- * Esta interface é exportada para ser usada no ProjectsSection.
  */
 export interface ProjectData {
     title: string;
     category: 'Mobile' | 'Desktop' | 'Web';
+    imageUrl?: string; // <-- ADICIONADO: Campo opcional para a imagem
     introduction: string;
     linkYoutube?: string; 
     linkRepository?: string; 
@@ -30,7 +30,6 @@ export interface ProjectData {
  * @description Define as propriedades que o ProjectCard recebe.
  */
 interface ProjectCardProps {
-    // O card recebe o objeto 'project' completo para passar ao modal
     project: ProjectData;
 }
 
@@ -38,20 +37,12 @@ interface ProjectCardProps {
 // COMPONENTE
 // -----------------------------------------------------
 
-/**
- * @component ProjectCard
- * @description Componente individual de um projeto que, ao ser clicado, dispara o modal.
- */
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
-    // Hook para abrir o modal enviando os dados do projeto
     const { openModal } = useModal();
 
-    const { title, category } = project; 
+    // Adicionado imageUrl na desestruturação
+    const { title, category, imageUrl } = project; 
 
-    /**
-     * @function handleCardClick
-     * @description Função para garantir que o clique abra o modal.
-     */
     const handleCardClick = () => {
         openModal(project);
     };
@@ -59,9 +50,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return (
         <div 
             className="project-card"
-            // O evento onClick no div principal garante que qualquer parte do card seja clicável
             onClick={handleCardClick}
-            style={{ cursor: 'pointer' }}
+            style={{ 
+                cursor: 'pointer',
+                // APLICANDO A IMAGEM NO BACKGROUND DO CARD
+                backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }}
         >
             {/* Ícone de Informação (ⓘ) posicionado no topo */}
             <div className="card-info-icon">
@@ -70,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
             {/* Container para a imagem ou thumbnail do projeto */}
             <div className="card-media-placeholder">
-                {/* Aqui a imagem é renderizada via CSS background ou tag img futuramente */}
+                {/* A imagem agora está sendo aplicada no background da div pai */}
             </div>
 
             {/* Rodapé do card contendo o Título e a Categoria */}
