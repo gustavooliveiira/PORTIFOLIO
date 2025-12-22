@@ -59,10 +59,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                 backgroundPosition: 'center'
             }}
         >
-            {/* Ícone de Informação (ⓘ) posicionado no topo */}
-            <div className="card-info-icon">
-                ⓘ
-            </div>
 
             {/* Container para a imagem ou thumbnail do projeto */}
             <div className="card-media-placeholder">

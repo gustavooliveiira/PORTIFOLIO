@@ -22,8 +22,10 @@
 .project-card:hover {
   transform: scale(1.08);
   z-index: 10;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-  border-color: #8257e5; 
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.404), 
+  0 0 20px rgb(102, 252, 242); /* Ajuste a cor se o seu azul for outro */
+    
+  border-color: var(--color-primary-light); /* Usa a variável de azul do seu tema */
 }
 
 /* --- Imagem de Capa --- */
