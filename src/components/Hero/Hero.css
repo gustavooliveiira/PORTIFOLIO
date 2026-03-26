@@ -248,6 +248,8 @@ body.light .social-links a:hover .social-icon {
     .hero-content {
         flex-direction: column;
         text-align: center;
+        /* Impede que o brilho do neon (::before) vaze para fora da seção */
+        overflow: hidden;
     }
 
     .hero-text {

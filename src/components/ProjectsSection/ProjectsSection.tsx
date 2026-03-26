@@ -25,24 +25,26 @@ const initialProjects: ProjectData[] = [
         category: 'Web', 
         imageUrl: thumbNetflix,
         introduction: "Introdução do projeto Netflix Clone.", 
-        linkYoutube: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+        linkYoutube: "https://youtu.be/9kzE8isXlQY?si=ndSPBWUIJ_VW8POF" 
     },
     { 
         title: "App de Receitas Mobile", 
         category: 'Mobile', 
         imageUrl: thumbNetflix,
         introduction: "Introdução do App de Receitas.",
+         linkYoutube: "https://youtu.be/9kzE8isXlQY?si=ndSPBWUIJ_VW8POF" 
     },
     { 
         title: "Dashboard Admin Desktop", 
         category: 'Desktop', 
         introduction: "Introdução do Dashboard.",
-        linkYoutube: "https://youtu.be/mQ3gB9681Rk" 
+        linkYoutube: "https://youtu.be/9kzE8isXlQY?si=ndSPBWUIJ_VW8POF" 
     },
     { 
         title: "Landing Page Empresarial", 
         category: 'Web', 
         introduction: "Introdução da Landing Page.",
+        linkYoutube: "https://youtu.be/9kzE8isXlQY?si=ndSPBWUIJ_VW8POF" 
     },
 ];
 
