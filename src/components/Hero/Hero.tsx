@@ -5,10 +5,10 @@ import './Hero.css';
 import { useLanguage } from '../../i18n/useLanguage'; 
 
 // --- IMPORTAÇÃO DOS ÍCONES E DA SUA FOTO ---
-import githubIcon from '../../assets/github.svg'; 
-import linkedinIcon from '../../assets/linkedin.svg';
+import githubIcon from '../../assets/Icon/github.svg'; 
+import linkedinIcon from '../../assets/Icon/linkedin.svg';
 // IMPORTANTE: Importe sua foto aqui. Vou usar o nome 'profilePic'
-import profilePic from '../../assets/MENATAL.png'; 
+import profilePic from '../../assets/Img/MENATAL.png'; 
 
 const name = "Gustavo Oliveira"; 
 

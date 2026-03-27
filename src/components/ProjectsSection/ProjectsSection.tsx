@@ -4,7 +4,7 @@ import ProjectCard from '../ProjectCard/ProjectCard';
 import type { ProjectData } from '../ProjectCard/ProjectCard'; 
 import { useLanguage } from '../../i18n/useLanguage'; 
 import './ProjectsSection.css';
-import thumbNetflix from '../../assets/Thumb.png';
+import thumbNetflix from '../../assets/Img/IMGGAY.jpg';
 
 
 //Importe das Thumb

@@ -8,15 +8,15 @@ import './About.css';
  * @description Importação dos ícones de tecnologia salvos na pasta src/assets.
  * O Vite requer a importação direta para arquivos dentro da pasta /src.
  */
-import jsIcon from '../../assets/JS.svg';
-import tsIcon from '../../assets/TS.svg';
-import htmlIcon from '../../assets/HTML.svg';
-import cssIcon from '../../assets/CSS.svg';
-import nodeIcon from '../../assets/Node.svg';
-import reactIcon from '../../assets/react.svg';
-import pythonIcon from '../../assets/Python.svg';
-import phpIcon from '../../assets/PHP.ico';
-import dockerIcon from '../../assets/Docker.svg';
+import jsIcon from '../../assets/Icon/JS.svg';
+import tsIcon from '../../assets/Icon/TS.svg';
+import htmlIcon from '../../assets/Icon/HTML.svg';
+import cssIcon from '../../assets/Icon/CSS.svg';
+import nodeIcon from '../../assets/Icon/Node.svg';
+import reactIcon from '../../assets/Icon/react.svg';
+import pythonIcon from '../../assets/Icon/Python.svg';
+import phpIcon from '../../assets/Icon/PHP.ico';
+import dockerIcon from '../../assets/Icon/Docker.svg';
 
 /**
  * @component About
